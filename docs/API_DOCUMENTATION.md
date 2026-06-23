@@ -745,4 +745,4 @@ For API issues or questions:
 ---
 
 **API Version:** 1.0.0  
-**Last Updated:** July 2024
+**Last Updated:** July 2026

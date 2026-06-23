@@ -419,4 +419,4 @@ This project demonstrates the power of AI-assisted development and serves as a t
 
 ---
 
-**Built with IBM Bob | July 2024 AI Builders Challenge**
+**Built with IBM Bob | July 2026 AI Builders Challenge**

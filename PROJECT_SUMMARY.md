@@ -1,6 +1,6 @@
 # Lumina Studio - Project Summary
 
-**July 2024 AI Builders Challenge Submission**
+**July 2026 AI Builders Challenge Submission**
 
 ---
 
@@ -375,4 +375,4 @@ Built entirely with IBM Bob, this project showcases the power of AI-assisted dev
 
 **Lumina Studio - Illuminating the Future of Creative Expression**
 
-*July 2024 AI Builders Challenge Submission*
+*July 2026 AI Builders Challenge Submission*

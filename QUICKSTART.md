@@ -161,7 +161,7 @@ npm install
 
 ```
 "Welcome to Lumina Studio - an AI-powered creative platform built entirely 
-with IBM Bob for the July 2024 AI Builders Challenge.
+with IBM Bob for the July 2026 AI Builders Challenge.
 
 [Show Story Generator]
 Let's generate a science fiction story. I'll enter a prompt about a space 

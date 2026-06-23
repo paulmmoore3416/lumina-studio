@@ -6,7 +6,7 @@
 [![Built with IBM Bob](https://img.shields.io/badge/Built%20with-IBM%20Bob-blue)](https://ibm.biz/university-bob)
 [![AI Powered](https://img.shields.io/badge/AI-Powered-brightgreen)](https://github.com/paulmmoore3416/lumina-studio)
 
-An AI-powered multimodal creative platform for storytelling, design, and interactive experiences. Built for the July 2024 AI Builders Challenge.
+An AI-powered multimodal creative platform for storytelling, design, and interactive experiences. Built for the July 2026 AI Builders Challenge.
 
 🌐 **[Live Demo](https://paulmmoore3416.github.io/lumina-studio/)** | 📖 **[Documentation](./docs/)** | 🎥 **[Video Demo](#)**
 
@@ -408,6 +408,6 @@ For questions, issues, or feedback:
 
 ---
 
-**Built with ❤️ using IBM Bob for the July 2024 AI Builders Challenge**
+**Built with ❤️ using IBM Bob for the July 2026 AI Builders Challenge**
 
 *Lumina Studio - Illuminating the future of creative expression*
