@@ -14,12 +14,18 @@
         }
 
         :root {
-            --color-bg: #0d1117;
-            --color-surface: #161b22;
-            --color-accent: #00a651;
-            --color-accent-dark: #004225;
-            --color-text: #e6edf3;
-            --color-text-secondary: #8b949e;
+            --color-bg: #0a0e1a;
+            --color-surface: #131824;
+            --color-surface-secondary: #1a2332;
+            --color-accent: #ff6b35;
+            --color-accent-secondary: #ff8c61;
+            --color-accent-pink: #ff5e9d;
+            --color-accent-purple: #9d4edd;
+            --color-accent-blue: #4cc9f0;
+            --color-accent-dark: #cc5529;
+            --color-text: #f0f4f8;
+            --color-text-secondary: #a0aec0;
+            --color-gradient: linear-gradient(135deg, #ff6b35 0%, #ff5e9d 50%, #9d4edd 100%);
         }
 
         body {
@@ -84,7 +90,7 @@
         .hero {
             text-align: center;
             padding: 6rem 0;
-            background: linear-gradient(135deg, var(--color-bg) 0%, var(--color-surface) 100%);
+            background: linear-gradient(135deg, var(--color-bg) 0%, var(--color-surface-secondary) 100%);
         }
 
         .hero-logo {
@@ -93,13 +99,13 @@
             border-radius: 30px;
             margin: 0 auto 2rem;
             display: block;
-            box-shadow: 0 20px 60px rgba(0, 166, 81, 0.3);
+            box-shadow: 0 20px 60px rgba(255, 107, 53, 0.4);
         }
 
         .hero h1 {
             font-size: 3.5rem;
             margin-bottom: 1rem;
-            background: linear-gradient(135deg, var(--color-accent) 0%, #00d9ff 100%);
+            background: var(--color-gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -126,7 +132,7 @@
 
         .btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(0, 166, 81, 0.3);
+            box-shadow: 0 10px 30px rgba(255, 107, 53, 0.4);
         }
 
         .btn-secondary {
