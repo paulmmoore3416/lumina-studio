@@ -7,6 +7,9 @@ import storyRoutes from './routes/story.js';
 import visualRoutes from './routes/visual.js';
 import sceneRoutes from './routes/scene.js';
 import collaborationRoutes from './routes/collaboration.js';
+import voiceRoutes from './routes/voice.js';
+import videoRoutes from './routes/video.js';
+import translationRoutes from './routes/translation.js';
 
 dotenv.config();
 
@@ -29,8 +32,18 @@ app.get('/api/health', (req, res) => {
   res.json({
     status: 'healthy',
     timestamp: new Date().toISOString(),
-    service: 'Lumina Studio API',
-    version: '1.0.0'
+    service: 'VividForge Studio API',
+    version: '2.0.0',
+    features: {
+      story: true,
+      visual: true,
+      scene: true,
+      collaboration: true,
+      voice: true,
+      video: true,
+      watsonx: !!process.env.WATSONX_API_KEY,
+      elevenlabs: !!process.env.ELEVENLABS_API_KEY
+    }
   });
 });
 
@@ -39,6 +52,12 @@ app.use('/api/story', storyRoutes);
 app.use('/api/visual', visualRoutes);
 app.use('/api/scene', sceneRoutes);
 app.use('/api/collaboration', collaborationRoutes);
+app.use('/api/voice', voiceRoutes);
+app.use('/api/video', videoRoutes);
+app.use('/api/translation', translationRoutes);
+
+// Serve generated content
+app.use('/generated', express.static(join(__dirname, '../public/generated')));
 
 // Error handling middleware
 app.use((err, req, res, next) => {
@@ -59,11 +78,14 @@ app.use((req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`🚀 Lumina Studio API running on port ${PORT}`);
+  console.log(`🚀 VividForge Studio API running on port ${PORT}`);
   console.log(`📍 Health check: http://localhost:${PORT}/api/health`);
   console.log(`🎨 Environment: ${process.env.NODE_ENV || 'development'}`);
+  console.log(`🎙️ Voice Generation: ${process.env.ELEVENLABS_API_KEY ? 'Enabled' : 'Mock Mode'}`);
+  console.log(`🎬 Video Generation: Enabled`);
+  console.log(`🤖 IBM watsonx.ai: ${process.env.WATSONX_API_KEY ? 'Configured' : 'Mock Mode'}`);
 });
 
 export default app;
 
-// Made with Bob
+// Made with Bob - VividForge Studio Enhanced

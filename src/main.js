@@ -3,19 +3,28 @@ import { StoryGenerator } from './modules/StoryGenerator.js';
 import { VisualGenerator } from './modules/VisualGenerator.js';
 import { SceneBuilder } from './modules/SceneBuilder.js';
 import { CollaborationHub } from './modules/CollaborationHub.js';
+import { ConceptGenerator } from './modules/ConceptGenerator.js';
+import { VoiceGenerator } from './modules/VoiceGenerator.js';
+import { VideoGenerator } from './modules/VideoGenerator.js';
+import { TranslationHub } from './modules/TranslationHub.js';
 import { UIManager } from './modules/UIManager.js';
 
 /**
- * Lumina Studio - Main Application Entry Point
- * AI-powered multimodal creative platform
+ * VividForge Studio - Main Application Entry Point
+ * AI-powered creative ideation & multimodal platform
+ * Powered by IBM watsonx.ai, Granite models, and ElevenLabs
  */
 
-class LuminaStudio {
+class VividForgeStudio {
   constructor() {
     this.modules = {
+      concept: new ConceptGenerator(),
       story: new StoryGenerator(),
       visual: new VisualGenerator(),
       scene: new SceneBuilder(),
+      voice: new VoiceGenerator(),
+      video: new VideoGenerator(),
+      translation: new TranslationHub(),
       collaboration: new CollaborationHub(),
       ui: new UIManager()
     };
@@ -25,7 +34,7 @@ class LuminaStudio {
   }
 
   async init() {
-    console.log('🎨 Initializing Lumina Studio...');
+    console.log('🎨 Initializing VividForge Studio...');
     
     // Check API health
     await this.checkAPIHealth();
@@ -36,7 +45,7 @@ class LuminaStudio {
     // Set up event listeners
     this.setupEventListeners();
     
-    console.log('✨ Lumina Studio ready!');
+    console.log('✨ VividForge Studio ready!');
   }
 
   async checkAPIHealth() {
@@ -58,21 +67,33 @@ class LuminaStudio {
       <!-- Hero Section -->
       <section class="hero">
         <div class="hero-content">
-          <h1 class="hero-title">Lumina Studio</h1>
-          <p class="hero-subtitle">Where Ideas Illuminate Reality</p>
+          <h1 class="hero-title">VividForge Studio</h1>
+          <p class="hero-subtitle">Where AI Meets Creativity</p>
           <p class="hero-description">
-            AI-powered multimodal creative platform for storytelling, design, and interactive experiences.
-            Transform your imagination into immersive narratives with the power of artificial intelligence.
+            Transform creative sparks into detailed concepts with IBM watsonx.ai and Granite models.
+            Professional-grade AI tools for visual artists, designers, storytellers, and creative professionals.
           </p>
           <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+            <button class="btn btn-primary" data-module="concept">
+              <span>✨</span> Concept Generator
+            </button>
             <button class="btn btn-primary" data-module="story">
               <span>📝</span> Story Architect
             </button>
             <button class="btn btn-primary" data-module="visual">
-              <span>🎨</span> Visual Concepts
+              <span>🎨</span> Visual Design
+            </button>
+            <button class="btn btn-primary" data-module="voice">
+              <span>🎙️</span> Voice Generator
+            </button>
+            <button class="btn btn-primary" data-module="video">
+              <span>🎬</span> Video Generator
+            </button>
+            <button class="btn btn-primary" data-module="translation">
+              <span>🌍</span> Translation Hub
             </button>
             <button class="btn btn-primary" data-module="scene">
-              <span>🎬</span> Scene Builder
+              <span>🎭</span> Scene Builder
             </button>
             <button class="btn btn-secondary" data-module="collaboration">
               <span>🤝</span> Collaborate
@@ -85,21 +106,69 @@ class LuminaStudio {
       <section class="section">
         <div class="container">
           <h2 class="text-center mb-xl" style="font-family: var(--font-display); font-size: 2.5rem; color: var(--color-text-primary);">
-            Creative Tools Powered by AI
+            Professional Creative Tools Powered by IBM Granite
           </h2>
           
           <div class="bento-grid">
             <div class="glass-card bento-item featured">
               <div>
                 <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: var(--color-accent-light);">
-                  🎭 AI Story Architect
+                  ✨ Advanced Concept Generator
                 </h3>
                 <p style="color: var(--color-text-secondary); line-height: 1.8;">
-                  Generate compelling narratives with branching storylines. Choose from multiple genres,
-                  tones, and styles. Let AI help you craft stories that captivate and inspire.
+                  Transform 1-sentence ideas into comprehensive creative briefs with color palettes,
+                  composition guidelines, and AI-ready image prompts. Powered by IBM Granite.
                 </p>
               </div>
-              <button class="btn btn-secondary mt-md" data-module="story">Explore Stories</button>
+              <button class="btn btn-secondary mt-md" data-module="concept">Generate Concepts</button>
+            </div>
+
+            <div class="glass-card bento-item">
+              <div>
+                <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem; color: var(--color-accent-light);">
+                  🎙️ Voice Generator
+                </h3>
+                <p style="color: var(--color-text-secondary);">
+                  Professional text-to-speech with ElevenLabs AI. Multiple voices and emotion control.
+                </p>
+              </div>
+              <button class="btn btn-secondary mt-md" data-module="voice">Generate Voice</button>
+            </div>
+
+            <div class="glass-card bento-item">
+              <div>
+                <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem; color: var(--color-accent-light);">
+                  🎬 Video Generator
+                </h3>
+                <p style="color: var(--color-text-secondary);">
+                  Create stunning 6-second cinematic videos with AI-powered scene composition.
+                </p>
+              </div>
+              <button class="btn btn-secondary mt-md" data-module="video">Generate Video</button>
+            </div>
+
+            <div class="glass-card bento-item">
+              <div>
+                <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem; color: var(--color-accent-light);">
+                  🌍 Translation Hub
+                </h3>
+                <p style="color: var(--color-text-secondary);">
+                  Translate between 12 languages with pronunciation guides and cultural localization.
+                </p>
+              </div>
+              <button class="btn btn-secondary mt-md" data-module="translation">Translate Now</button>
+            </div>
+
+            <div class="glass-card bento-item">
+              <div>
+                <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem; color: var(--color-accent-light);">
+                  📝 AI Story Architect
+                </h3>
+                <p style="color: var(--color-text-secondary);">
+                  Generate compelling narratives across multiple genres with intelligent plot development.
+                </p>
+              </div>
+              <button class="btn btn-secondary mt-md" data-module="story">Create Stories</button>
             </div>
 
             <div class="glass-card bento-item">
@@ -172,23 +241,23 @@ class LuminaStudio {
           
           <div class="bento-grid">
             <div class="glass-card bento-item">
-              <h4 style="color: var(--color-accent-light); margin-bottom: 0.5rem;">🤖 IBM Bob</h4>
+              <h4 style="color: var(--color-accent-light); margin-bottom: 0.5rem;">🤖 IBM watsonx.ai</h4>
               <p style="color: var(--color-text-secondary); font-size: 0.9rem;">
-                Primary development tool for AI-assisted coding and rapid prototyping
+                Enterprise-grade AI platform powering all creative generation features
               </p>
             </div>
             
             <div class="glass-card bento-item">
-              <h4 style="color: var(--color-accent-light); margin-bottom: 0.5rem;">🧠 AI Models</h4>
+              <h4 style="color: var(--color-accent-light); margin-bottom: 0.5rem;">🧠 Granite Models</h4>
               <p style="color: var(--color-text-secondary); font-size: 0.9rem;">
-                Powered by IBM watsonx and compatible with multiple AI providers
+                IBM's advanced language models optimized for creative and technical tasks
               </p>
             </div>
             
             <div class="glass-card bento-item">
-              <h4 style="color: var(--color-accent-light); margin-bottom: 0.5rem;">⚡ Modern Stack</h4>
+              <h4 style="color: var(--color-accent-light); margin-bottom: 0.5rem;">⚡ Built with IBM Bob</h4>
               <p style="color: var(--color-text-secondary); font-size: 0.9rem;">
-                Built with Node.js, Express, and Vite for optimal performance
+                Developed entirely using IBM Bob for AI-assisted rapid prototyping
               </p>
             </div>
           </div>
@@ -200,9 +269,9 @@ class LuminaStudio {
 
       <!-- Footer -->
       <footer style="padding: 2rem; text-align: center; color: var(--color-text-tertiary); border-top: 1px solid var(--color-surface);">
-        <p>Lumina Studio - July 2024 AI Builders Challenge</p>
+        <p>VividForge Studio - July 2026 AI Builders Challenge</p>
         <p style="margin-top: 0.5rem; font-size: 0.875rem;">
-          Built with IBM Bob | Powered by AI | Created for Creative Industries
+          Built with IBM Bob | Powered by IBM watsonx.ai & Granite | Created for Creative Industries
         </p>
       </footer>
     `;
@@ -248,11 +317,20 @@ class LuminaStudio {
     workspace.appendChild(moduleContainer);
     
     switch(moduleName) {
+      case 'concept':
+        this.modules.concept.render(moduleContainer);
+        break;
       case 'story':
         this.modules.story.render(moduleContainer);
         break;
       case 'visual':
         this.modules.visual.render(moduleContainer);
+        break;
+      case 'voice':
+        this.modules.voice.render(moduleContainer);
+        break;
+      case 'video':
+        this.modules.video.render(moduleContainer);
         break;
       case 'scene':
         this.modules.scene.render(moduleContainer);
@@ -281,9 +359,9 @@ class LuminaStudio {
 
 // Initialize the application when DOM is ready
 if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', () => new LuminaStudio());
+  document.addEventListener('DOMContentLoaded', () => new VividForgeStudio());
 } else {
-  new LuminaStudio();
+  new VividForgeStudio();
 }
 
-// Made with Bob
+// Made with Bob - VividForge Studio with Advanced Voice & Video Generation

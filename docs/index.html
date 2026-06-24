@@ -3,56 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Lumina Studio - AI-powered multimodal creative platform for storytelling, design, and interactive experiences">
-    <meta name="keywords" content="AI, creative tools, storytelling, design, IBM Bob, watsonx">
-    <meta name="author" content="Paul Moore">
-    <link rel="icon" type="image/png" href="assets/1782235092388.png">
-    <title>Lumina Studio - Where Ideas Illuminate Reality</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <meta name="description" content="VividForge - AI-Powered Creative Ideation & Multimodal Platform. Transform creative sparks into detailed concepts with IBM watsonx.ai, Granite models, and ElevenLabs.">
+    <meta name="keywords" content="AI, creative tools, IBM watsonx, Granite, ElevenLabs, concept generation, storytelling, visual design, voice generation, video generation">
+    <title>VividForge - AI-Powered Creative Platform</title>
     <style>
-        :root {
-            --color-bg-primary: #0d1117;
-            --color-bg-secondary: #161b22;
-            --color-surface: #30363d;
-            --color-accent-primary: #004225;
-            --color-accent-light: #00a651;
-            --color-accent-glow: rgba(0, 166, 81, 0.3);
-            --color-text-primary: #e6edf3;
-            --color-text-secondary: #8b949e;
-            --color-text-tertiary: #6e7681;
-            --glass-bg: rgba(48, 54, 61, 0.6);
-            --glass-border: rgba(139, 148, 158, 0.2);
-            --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            --font-display: 'Space Grotesk', var(--font-primary);
-        }
-
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        body {
-            font-family: var(--font-primary);
-            background: var(--color-bg-primary);
-            color: var(--color-text-primary);
-            line-height: 1.6;
-            overflow-x: hidden;
+        :root {
+            --color-bg: #0d1117;
+            --color-surface: #161b22;
+            --color-accent: #00a651;
+            --color-accent-dark: #004225;
+            --color-text: #e6edf3;
+            --color-text-secondary: #8b949e;
         }
 
-        .animated-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            background: 
-                radial-gradient(ellipse at 20% 30%, var(--color-accent-glow) 0%, transparent 50%),
-                radial-gradient(ellipse at 80% 70%, rgba(0, 66, 37, 0.2) 0%, transparent 50%),
-                var(--color-bg-primary);
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            background: var(--color-bg);
+            color: var(--color-text);
+            line-height: 1.6;
         }
 
         .container {
@@ -62,8 +36,13 @@
         }
 
         header {
-            padding: 2rem 0;
-            border-bottom: 1px solid var(--color-surface);
+            background: var(--color-surface);
+            padding: 1.5rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
         }
 
         .header-content {
@@ -72,155 +51,117 @@
             align-items: center;
         }
 
-        .logo {
+        .logo-container {
             display: flex;
             align-items: center;
-            gap: 0.75rem;
+            gap: 1rem;
         }
 
         .logo-img {
+            width: 50px;
             height: 50px;
-            width: auto;
-            mix-blend-mode: lighten;
-            filter: brightness(1.2);
+            border-radius: 12px;
+            object-fit: cover;
         }
 
         .logo-text {
-            font-family: var(--font-display);
             font-size: 1.5rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, var(--color-text-primary) 0%, var(--color-accent-light) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            font-weight: bold;
+            color: var(--color-accent);
         }
 
         nav a {
             color: var(--color-text-secondary);
             text-decoration: none;
             margin-left: 2rem;
-            transition: color 0.2s;
+            transition: color 0.3s;
         }
 
         nav a:hover {
-            color: var(--color-accent-light);
+            color: var(--color-accent);
         }
 
         .hero {
-            min-height: 80vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
             text-align: center;
-            padding: 4rem 2rem;
+            padding: 6rem 0;
+            background: linear-gradient(135deg, var(--color-bg) 0%, var(--color-surface) 100%);
         }
 
-        .hero-title {
-            font-family: var(--font-display);
-            font-size: clamp(3rem, 10vw, 6rem);
-            font-weight: 700;
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
-            background: linear-gradient(135deg, var(--color-text-primary) 0%, var(--color-accent-light) 100%);
+        .hero-logo {
+            width: 150px;
+            height: 150px;
+            border-radius: 30px;
+            margin: 0 auto 2rem;
+            display: block;
+            box-shadow: 0 20px 60px rgba(0, 166, 81, 0.3);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--color-accent) 0%, #00d9ff 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            animation: glow 3s ease-in-out infinite;
+            background-clip: text;
         }
 
-        @keyframes glow {
-            0%, 100% { filter: brightness(1); }
-            50% { filter: brightness(1.2); }
-        }
-
-        .hero-subtitle {
-            font-size: clamp(1.25rem, 3vw, 2rem);
+        .hero p {
+            font-size: 1.25rem;
             color: var(--color-text-secondary);
-            margin-bottom: 2rem;
-            font-weight: 300;
-        }
-
-        .hero-description {
-            font-size: 1.125rem;
-            color: var(--color-text-tertiary);
-            max-width: 700px;
-            margin: 0 auto 3rem;
-            line-height: 1.8;
-        }
-
-        .btn-group {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
+            max-width: 800px;
+            margin: 0 auto 2rem;
         }
 
         .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
+            display: inline-block;
             padding: 1rem 2rem;
-            font-size: 1rem;
-            font-weight: 500;
+            background: var(--color-accent);
+            color: white;
             text-decoration: none;
             border-radius: 0.5rem;
-            transition: all 0.25s;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+            margin: 0.5rem;
         }
 
-        .btn-primary {
-            background: linear-gradient(135deg, var(--color-accent-primary), var(--color-accent-light));
-            color: white;
-            box-shadow: 0 4px 12px var(--color-accent-glow);
-        }
-
-        .btn-primary:hover {
+        .btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px var(--color-accent-glow);
+            box-shadow: 0 10px 30px rgba(0, 166, 81, 0.3);
         }
 
         .btn-secondary {
-            background: var(--glass-bg);
-            backdrop-filter: blur(10px);
-            color: var(--color-text-primary);
-            border: 1px solid var(--glass-border);
+            background: transparent;
+            border: 2px solid var(--color-accent);
+            color: var(--color-accent);
         }
 
-        .btn-secondary:hover {
-            border-color: var(--color-accent-light);
-            background: var(--color-surface);
-        }
-
-        .section {
+        .features {
             padding: 6rem 0;
         }
 
-        .section-title {
-            font-family: var(--font-display);
-            font-size: clamp(2rem, 5vw, 3rem);
+        .features h2 {
             text-align: center;
+            font-size: 2.5rem;
             margin-bottom: 3rem;
-            color: var(--color-text-primary);
         }
 
-        .features-grid {
+        .feature-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
-            margin-top: 3rem;
         }
 
         .feature-card {
-            background: var(--glass-bg);
-            backdrop-filter: blur(10px);
-            border: 1px solid var(--glass-border);
-            border-radius: 1rem;
+            background: var(--color-surface);
             padding: 2rem;
-            transition: all 0.25s;
+            border-radius: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s, border-color 0.3s;
         }
 
         .feature-card:hover {
-            transform: translateY(-4px);
-            border-color: var(--color-accent-light);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
+            transform: translateY(-5px);
+            border-color: var(--color-accent);
         }
 
         .feature-icon {
@@ -228,243 +169,338 @@
             margin-bottom: 1rem;
         }
 
-        .feature-title {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: var(--color-accent-light);
+        .feature-card h3 {
+            color: var(--color-accent);
             margin-bottom: 1rem;
         }
 
-        .feature-description {
-            color: var(--color-text-secondary);
-            line-height: 1.8;
+        .feature-card .new-badge {
+            display: inline-block;
+            background: var(--color-accent);
+            color: white;
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.25rem;
+            font-size: 0.75rem;
+            font-weight: bold;
+            margin-left: 0.5rem;
         }
 
         .tech-stack {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            flex-wrap: wrap;
-            margin-top: 3rem;
+            background: var(--color-surface);
+            padding: 6rem 0;
         }
 
-        .tech-badge {
-            background: var(--glass-bg);
-            backdrop-filter: blur(10px);
-            border: 1px solid var(--glass-border);
-            border-radius: 0.5rem;
-            padding: 1rem 1.5rem;
-            color: var(--color-text-primary);
-            font-weight: 500;
+        .tech-stack h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .tech-item {
+            text-align: center;
+            padding: 2rem;
+            background: var(--color-bg);
+            border-radius: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .tech-item h4 {
+            color: var(--color-accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .demo-section {
+            padding: 6rem 0;
+            text-align: center;
+        }
+
+        .demo-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
         }
 
         .video-container {
-            max-width: 800px;
-            margin: 3rem auto;
-            aspect-ratio: 16/9;
-            background: var(--color-surface);
+            max-width: 900px;
+            margin: 0 auto;
             border-radius: 1rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--color-text-tertiary);
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        .video-container video {
+            width: 100%;
+            display: block;
         }
 
         footer {
+            background: var(--color-surface);
             padding: 3rem 0;
             text-align: center;
-            border-top: 1px solid var(--color-surface);
-            color: var(--color-text-tertiary);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        .footer-links {
+        footer p {
+            color: var(--color-text-secondary);
+            margin: 0.5rem 0;
+        }
+
+        .badges {
             display: flex;
             justify-content: center;
-            gap: 2rem;
-            margin-bottom: 1rem;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin: 2rem 0;
         }
 
-        .footer-links a {
-            color: var(--color-text-secondary);
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-
-        .footer-links a:hover {
-            color: var(--color-accent-light);
+        .badge {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: var(--color-accent-dark);
+            color: var(--color-text);
+            border-radius: 0.5rem;
+            font-size: 0.875rem;
+            font-weight: 600;
         }
 
         @media (max-width: 768px) {
-            .header-content {
-                flex-direction: column;
-                gap: 1rem;
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .feature-grid,
+            .tech-grid {
+                grid-template-columns: 1fr;
             }
 
             nav {
-                display: flex;
-                gap: 1rem;
+                display: none;
             }
 
-            nav a {
-                margin-left: 0;
-            }
-
-            .features-grid {
-                grid-template-columns: 1fr;
+            .hero-logo {
+                width: 100px;
+                height: 100px;
             }
         }
     </style>
 </head>
 <body>
-    <div class="animated-bg"></div>
-
     <header>
         <div class="container">
             <div class="header-content">
-                <div class="logo">
-                    <img src="assets/1782235092388.png" alt="Lumina Studio Logo" class="logo-img">
-                    <span class="logo-text">Lumina Studio</span>
+                <div class="logo-container">
+                    <img src="./assets/vividforge-logo.jpg" alt="VividForge Logo" class="logo-img">
+                    <div class="logo-text">VividForge</div>
                 </div>
                 <nav>
                     <a href="#features">Features</a>
                     <a href="#tech">Technology</a>
                     <a href="#demo">Demo</a>
-                    <a href="https://github.com/paulmmoore3416/lumina-studio">GitHub</a>
+                    <a href="https://github.com/paulmmoore3416/vividforge">GitHub</a>
                 </nav>
             </div>
         </div>
     </header>
 
     <section class="hero">
-        <h1 class="hero-title">Lumina Studio</h1>
-        <p class="hero-subtitle">Where Ideas Illuminate Reality</p>
-        <p class="hero-description">
-            AI-powered multimodal creative platform for storytelling, design, and interactive experiences.
-            Transform your imagination into immersive narratives with the power of artificial intelligence.
-        </p>
-        <div class="btn-group">
-            <a href="https://github.com/paulmmoore3416/lumina-studio" class="btn btn-primary">
-                <span>📦</span> View on GitHub
-            </a>
-            <a href="https://github.com/paulmmoore3416/lumina-studio#getting-started" class="btn btn-secondary">
-                <span>🚀</span> Get Started
-            </a>
-            <a href="https://github.com/paulmmoore3416/lumina-studio/tree/main/docs" class="btn btn-secondary">
-                <span>📖</span> Documentation
-            </a>
+        <div class="container">
+            <img src="./assets/vividforge-logo.jpg" alt="VividForge" class="hero-logo">
+            <h1>VividForge</h1>
+            <p>
+                AI-Powered Creative Ideation & Multimodal Platform. Transform creative sparks into detailed concepts, 
+                stories, visuals, voice, and video with IBM watsonx.ai, Granite models, and ElevenLabs. 
+                Professional-grade tools for visual artists, designers, storytellers, and creative professionals.
+            </p>
+            <div class="badges">
+                <span class="badge">🤖 IBM watsonx.ai</span>
+                <span class="badge">🧠 Granite Models</span>
+                <span class="badge">🎙️ ElevenLabs Voice</span>
+                <span class="badge">🎬 Video Generation</span>
+                <span class="badge">🌍 12 Languages</span>
+                <span class="badge">⚡ Built with IBM Bob</span>
+            </div>
+            <div>
+                <a href="https://github.com/paulmmoore3416/vividforge" class="btn">View on GitHub</a>
+                <a href="./API_DOCUMENTATION.md" class="btn btn-secondary">Documentation</a>
+            </div>
         </div>
     </section>
 
-    <section id="features" class="section">
+    <section id="features" class="features">
         <div class="container">
-            <h2 class="section-title">Powerful Creative Tools</h2>
-            <div class="features-grid">
+            <h2>Professional Creative Tools</h2>
+            <div class="feature-grid">
                 <div class="feature-card">
-                    <div class="feature-icon">📝</div>
-                    <h3 class="feature-title">AI Story Architect</h3>
-                    <p class="feature-description">
-                        Generate compelling narratives with branching storylines across multiple genres.
-                        Get AI-powered suggestions and enhance your content with intelligent refinements.
+                    <div class="feature-icon">✨</div>
+                    <h3>Advanced Concept Generator</h3>
+                    <p>
+                        Transform 1-sentence ideas into comprehensive creative briefs with color palettes, 
+                        composition guidelines, and AI-ready image prompts. Powered by IBM Granite models.
                     </p>
                 </div>
 
                 <div class="feature-card">
-                    <div class="feature-icon">🎨</div>
-                    <h3 class="feature-title">Visual Concept Generator</h3>
-                    <p class="feature-description">
-                        Create detailed visual concepts with color palettes, composition guidelines,
-                        and lighting specifications. Perfect for design teams and creative directors.
+                    <div class="feature-icon">🎙️</div>
+                    <h3>Voice Generator <span class="new-badge">NEW</span></h3>
+                    <p>
+                        Professional text-to-speech with ElevenLabs AI. 10 premium voices, emotion control, 
+                        and narration mode for storytelling.
                     </p>
                 </div>
 
                 <div class="feature-card">
                     <div class="feature-icon">🎬</div>
-                    <h3 class="feature-title">Interactive Scene Builder</h3>
-                    <p class="feature-description">
-                        Build immersive interactive scenes with dynamic elements and branching narratives.
-                        Design puzzle sequences and exploration experiences with AI assistance.
+                    <h3>Video Generator <span class="new-badge">NEW</span></h3>
+                    <p>
+                        Create stunning 6-second cinematic videos with AI-powered scene composition, 
+                        Ken Burns effects, and color grading.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🌍</div>
+                    <h3>Translation Hub <span class="new-badge">NEW</span></h3>
+                    <p>
+                        Translate between 12 languages with pronunciation guides, cultural localization,
+                        and integrated voice playback. Powered by IBM Granite.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">📝</div>
+                    <h3>AI Story Architect</h3>
+                    <p>
+                        Generate compelling narratives across multiple genres with intelligent plot development,
+                        character arcs, and story enhancement tools.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🎨</div>
+                    <h3>Visual Design Studio</h3>
+                    <p>
+                        Create detailed visual concepts with mood boards, color theory, composition rules, 
+                        and lighting specifications for professional design work.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🎭</div>
+                    <h3>Interactive Scene Builder</h3>
+                    <p>
+                        Build immersive interactive scenes with branching narratives, dynamic elements, 
+                        and character interactions for games and experiences.
                     </p>
                 </div>
 
                 <div class="feature-card">
                     <div class="feature-icon">🤝</div>
-                    <h3 class="feature-title">Collaboration Hub</h3>
-                    <p class="feature-description">
-                        Work together in real-time with AI-powered brainstorming sessions.
-                        Track activity, manage projects, and coordinate creative teams seamlessly.
+                    <h3>Collaboration Hub</h3>
+                    <p>
+                        Work together in real-time with AI-powered brainstorming, shared projects, 
+                        and team coordination tools.
                     </p>
                 </div>
 
                 <div class="feature-card">
-                    <div class="feature-icon">✨</div>
-                    <h3 class="feature-title">AI Enhancement</h3>
-                    <p class="feature-description">
-                        Refine and improve your content with intelligent suggestions.
-                        Enhance dialogue, descriptions, pacing, and overall narrative quality.
-                    </p>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">📤</div>
-                    <h3 class="feature-title">Multi-format Export</h3>
-                    <p class="feature-description">
-                        Export your creations in various formats including Markdown, JSON, and more.
-                        Perfect for integration with other creative tools and workflows.
+                    <div class="feature-icon">🔄</div>
+                    <h3>Iterative Refinement</h3>
+                    <p>
+                        Continuously improve your creations with AI-assisted feedback loops, 
+                        enhancement suggestions, and version tracking.
                     </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="tech" class="section" style="background: var(--color-bg-secondary);">
+    <section id="tech" class="tech-stack">
         <div class="container">
-            <h2 class="section-title">Built with Cutting-Edge Technology</h2>
-            <div class="tech-stack">
-                <div class="tech-badge">🤖 IBM Bob</div>
-                <div class="tech-badge">🧠 IBM watsonx</div>
-                <div class="tech-badge">⚡ Node.js</div>
-                <div class="tech-badge">🎨 Vite</div>
-                <div class="tech-badge">🚀 Express</div>
-                <div class="tech-badge">💻 JavaScript ES6+</div>
+            <h2>Built with Cutting-Edge Technology</h2>
+            <div class="tech-grid">
+                <div class="tech-item">
+                    <h4>🤖 IBM watsonx.ai</h4>
+                    <p>Enterprise-grade AI platform powering all creative generation features</p>
+                </div>
+
+                <div class="tech-item">
+                    <h4>🧠 Granite Models</h4>
+                    <p>IBM's advanced language models optimized for creative and technical tasks</p>
+                </div>
+
+                <div class="tech-item">
+                    <h4>🎙️ ElevenLabs</h4>
+                    <p>Professional voice synthesis with emotion control and natural speech</p>
+                </div>
+
+                <div class="tech-item">
+                    <h4>🎬 FFmpeg</h4>
+                    <p>Advanced video processing with cinematic effects and transitions</p>
+                </div>
+
+                <div class="tech-item">
+                    <h4>⚡ Built with IBM Bob</h4>
+                    <p>Developed entirely using IBM Bob for AI-assisted rapid prototyping</p>
+                </div>
+
+                <div class="tech-item">
+                    <h4>🚀 Modern Stack</h4>
+                    <p>Node.js, Express, Vite, and ES6+ for optimal performance</p>
+                </div>
             </div>
-            <p style="text-align: center; margin-top: 2rem; color: var(--color-text-secondary); max-width: 700px; margin-left: auto; margin-right: auto;">
-                Developed entirely with IBM Bob as the primary development tool, demonstrating
-                the power of AI-assisted development and spec-driven methodology.
+        </div>
+    </section>
+
+    <section id="demo" class="demo-section">
+        <div class="container">
+            <h2>See VividForge in Action</h2>
+            <p style="color: var(--color-text-secondary); margin-bottom: 2rem;">
+                Watch how IBM Granite and ElevenLabs transform creative ideation
             </p>
-        </div>
-    </section>
-
-    <section id="demo" class="section">
-        <div class="container">
-            <h2 class="section-title">See It In Action</h2>
-            <div class="video-container" style="background: transparent;">
-                <video controls style="width: 100%; height: 100%; border-radius: 1rem;">
-                    <source src="assets/gemini_generated_video_2e8f17f0.mp4" type="video/mp4">
+            <div class="video-container">
+                <video controls poster="./assets/1782235092388.png">
+                    <source src="./assets/gemini_generated_video_2e8f17f0.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
             </div>
-            <p style="text-align: center; color: var(--color-text-secondary); margin-top: 2rem;">
-                Watch how Lumina Studio transforms creative workflows with AI-powered tools
-            </p>
         </div>
     </section>
 
-    <section class="section" style="background: var(--color-bg-secondary);">
+    <section class="features" style="background: var(--color-surface);">
         <div class="container">
-            <h2 class="section-title">July 2026 AI Builders Challenge</h2>
-            <div style="max-width: 800px; margin: 0 auto; text-align: center;">
-                <p style="color: var(--color-text-secondary); line-height: 1.8; margin-bottom: 2rem;">
-                    Lumina Studio was created for the July 2026 AI Builders Challenge, addressing the theme
-                    "Reimagine Creative Industries with AI". This project demonstrates how AI can transform
-                    creativity, storytelling, and content creation while making advanced tools accessible to everyone.
-                </p>
-                <div class="btn-group">
-                    <a href="https://github.com/paulmmoore3416/lumina-studio/blob/main/README.md" class="btn btn-primary">
-                        <span>📄</span> Read Full Documentation
-                    </a>
-                    <a href="https://github.com/paulmmoore3416/lumina-studio/blob/main/docs/IBM_BOB_USAGE.md" class="btn btn-secondary">
-                        <span>🤖</span> IBM Bob Usage
-                    </a>
+            <h2>Why VividForge?</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h3>🎯 Problem Solving</h3>
+                    <p>
+                        Addresses time-consuming ideation, technical complexity, and limited access 
+                        to advanced AI tools in creative industries.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <h3>💡 Innovation</h3>
+                    <p>
+                        Combines advanced concept generation with voice synthesis and video creation 
+                        for comprehensive creative workflows.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <h3>🏆 Quality</h3>
+                    <p>
+                        Powered by IBM watsonx.ai, Granite models, and ElevenLabs for enterprise-grade, 
+                        professional-quality outputs.
+                    </p>
                 </div>
             </div>
         </div>
@@ -472,18 +508,22 @@
 
     <footer>
         <div class="container">
-            <div class="footer-links">
-                <a href="https://github.com/paulmmoore3416/lumina-studio">GitHub</a>
-                <a href="https://github.com/paulmmoore3416/lumina-studio/blob/main/docs/API_DOCUMENTATION.md">API Docs</a>
-                <a href="https://github.com/paulmmoore3416/lumina-studio/issues">Issues</a>
-                <a href="https://github.com/paulmmoore3416">Author</a>
-            </div>
-            <p>Lumina Studio - July 2026 AI Builders Challenge</p>
-            <p style="margin-top: 0.5rem; font-size: 0.875rem;">
-                Built with IBM Bob | Powered by AI | MIT License
+            <p><strong>VividForge</strong></p>
+            <p>Built with ❤️ using IBM Bob for the July 2026 AI Builders Challenge</p>
+            <p>Powered by IBM watsonx.ai, Granite Models, and ElevenLabs</p>
+            <p style="margin-top: 2rem;">
+                <a href="https://github.com/paulmmoore3416/vividforge" style="color: var(--color-accent); text-decoration: none;">
+                    GitHub Repository
+                </a> | 
+                <a href="./API_DOCUMENTATION.md" style="color: var(--color-accent); text-decoration: none;">
+                    Documentation
+                </a> | 
+                <a href="./IBM_BOB_USAGE.md" style="color: var(--color-accent); text-decoration: none;">
+                    IBM Bob Usage
+                </a>
             </p>
             <p style="margin-top: 1rem; font-size: 0.875rem;">
-                © 2026 Paul Moore | <a href="mailto:paulmmoore3416@gmail.com" style="color: var(--color-accent-light);">paulmmoore3416@gmail.com</a>
+                © 2026 Paul Moore | MIT License
             </p>
         </div>
     </footer>
